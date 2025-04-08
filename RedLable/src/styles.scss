@@ -1,0 +1,55 @@
+@use '@angular/material' as mat;
+
+html {
+    color-scheme: light;
+    @include mat.theme((
+      color: (
+        primary: mat.$rose-palette,
+        tertiary: mat.$red-palette,
+      ),
+      typography: Roboto,
+      density: 0
+    ));
+  }
+
+body {
+    background: var(--mat-sys-surface);
+    color: var(--mat-sys-on-surface);
+    background-color: #fff0f5;
+  }
+
+.mat-toolbar, nav.navbar {
+    background-color: #d81b60; /* A rose red for the navbar */
+    color: #ffffff;
+  }
+
+.mat-toolbar .toolbar-title,
+nav.navbar .navbar-title {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* Ensure links and buttons in the navbar are white */
+.mat-toolbar button,
+nav.navbar a {
+  color: #ffffff;
+}
+
+/* Optional hover effects */
+.mat-toolbar button:hover,
+nav.navbar a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+// Additional global styling.
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.settings-menu {
+    background-color: #ffffff !important;
+    color: #333;  /* or whatever text color you wish for contrast */
+  }
+  
+
+  .mat-expansion-panel-header {
+    --mat-ripple-color: rgba(216, 27, 96, 0.3) !important;
+  }
