@@ -1,0 +1,28 @@
+<!-- src/app/my-deals/my-deals.component.html -->
+<h2>My Deals</h2>
+
+<div class="sort-bar">
+  <label>
+    Sort by:
+    <select [(ngModel)]="sortOption" (ngModelChange)="updateDeals()">
+      <option value="shop">Shop</option>
+      <option value="category">Category</option>
+    </select>
+  </label>
+</div>
+
+<div *ngIf="groupedDeals.length === 0">
+  <p>No deals match your selected categories.</p>
+</div>
+
+<div *ngFor="let group of groupedDeals" class="group">
+  <details open>
+    <summary>{{ group.key }} ({{ group.deals.length }})</summary>
+    <div class="grid">
+      <app-deal-card
+        *ngFor="let deal of group.deals"
+        [deal]="deal">
+      </app-deal-card>
+    </div>
+  </details>
+</div>

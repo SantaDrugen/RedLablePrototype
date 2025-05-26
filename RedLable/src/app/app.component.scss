@@ -1,0 +1,9 @@
+.nav-bar {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fafafa;
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+  }
+  .nav-bar a { text-decoration: none; color: #333; }

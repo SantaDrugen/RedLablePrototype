@@ -1,0 +1,22 @@
+<!-- src/app/preferences/preferences.component.html -->
+<h2>Preferences</h2>
+
+<form (ngSubmit)="save()">
+  <fieldset>
+    <legend>Select Product Categories</legend>
+
+    <div *ngFor="let cat of categories">
+      <label>
+        <input
+          type="checkbox"
+          [(ngModel)]="prefs[cat.code]"
+          name="cat_{{cat.code}}"
+        />
+        {{ cat.name }}
+      </label>
+    </div>
+  </fieldset>
+
+  <button type="submit">Save Preferences</button>
+  <a></a>
+</form>

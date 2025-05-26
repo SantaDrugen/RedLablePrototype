@@ -1,0 +1,47 @@
+<!-- deal-card.component.html -->
+<article class="card">
+    <div class="card-image">
+      <img [src]="deal.thumbnailUrl" [alt]="deal.productName" />
+      <span class="badge">-{{ deal.discountPercentage }}%</span>
+    </div>
+  
+    <div class="card-body">
+      <h3 class="title">
+        {{ deal.productName }}
+        <small class="brand">{{ deal.brand }}</small>
+      </h3>
+  
+      <p class="prices">
+        <span class="current">{{ deal.currentPrice | currency:'DKK':true }}</span>
+        <span class="original" *ngIf="deal.originalPrice">
+          <s>{{ deal.originalPrice | currency:'DKK':true }}</s>
+        </span>
+        <small class="unit">({{ deal.unitPrice | number:'1.0-2' }} DKK/unit)</small>
+      </p>
+  
+      <p class="info">
+        <strong>Expires:</strong>
+        {{ deal.expiryDate | date:'dd.MM.yyyy' }}
+        <span *ngIf="deal.bestBefore">({{ deal.bestBefore || 'Best before' }})</span>
+      </p>
+  
+      <p class="info">
+        <strong>Store:</strong> {{ deal.shop.name }}
+        <a
+          class="map-link"
+          href="https://www.google.com/maps/search/?api=1&query={{ deal.shop.lat }},{{ deal.shop.lng }}"
+          target="_blank"
+        >View map</a>
+      </p>
+  
+      <p class="info" *ngIf="deal.quantityAvailable !== undefined">
+        <strong>In stock:</strong> {{ deal.quantityAvailable }}
+      </p>
+    </div>
+  
+    <footer class="card-footer">
+      <!--<small class="distance">{{ distance }}</small>-->
+      <button class="btn-reserve">Reserve</button>
+    </footer>
+  </article>
+  

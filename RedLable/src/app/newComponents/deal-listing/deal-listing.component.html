@@ -1,0 +1,24 @@
+<!-- src/app/deal-listing/deal-listing.component.html -->
+<div class="filter-bar">
+  <label>
+    Store:
+    <select #shop (change)="onShopChange(shop.value)">
+      <option value="">All</option>
+      <option *ngFor="let s of shops" [value]="s.id">
+        {{ s.name }}
+      </option>
+    </select>
+  </label>
+
+  <label>
+    Expires before:
+    <input type="date" #expiry (change)="onExpiryChange(expiry.value)" />
+  </label>
+</div>
+
+<div class="grid">
+  <app-deal-card
+    *ngFor="let deal of filteredDeals"
+    [deal]="deal"
+  ></app-deal-card>
+</div>
